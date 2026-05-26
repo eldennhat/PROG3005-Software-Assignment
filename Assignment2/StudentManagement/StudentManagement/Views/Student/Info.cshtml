@@ -1,0 +1,15 @@
+﻿@model StudentManagement.Models.StudentViewModel
+
+@{
+    ViewBag.Title = "title";
+}
+
+<div class="text-center">
+    <h2>Student Information</h2>
+    
+    <div class="display-4">
+        <p>Name: <strong>@ViewBag.StudentName</strong></p>
+        <p>Age: <strong>@ViewData["Age"]</strong></p>
+        <p>Major: <strong>@Model.Major</strong></p>
+    </div>
+</div>

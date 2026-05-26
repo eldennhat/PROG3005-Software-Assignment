@@ -1,0 +1,389 @@
+/* ===================================
+   VnExpress-style News Site CSS
+   =================================== */
+
+/* --- Reset & Base --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 14px;
+  position: relative;
+  min-height: 100%;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+body {
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  color: #333;
+  background-color: #fff;
+  margin-bottom: 80px;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+a:hover {
+  color: #b80000;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- NAVBAR VnExpress --- */
+.vne-navbar {
+  background-color: #fff;
+  border-bottom: 2px solid #e0e0e0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.vne-nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  height: 42px;
+}
+
+.vne-home-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  color: #555;
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+
+.vne-home-icon:hover {
+  color: #b80000;
+}
+
+.vne-nav-links-wrapper {
+  flex: 1;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.vne-nav-links-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.vne-nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  gap: 0;
+}
+
+.vne-nav-links li a {
+  display: flex;
+  align-items: center;
+  height: 42px;
+  padding: 0 14px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #555;
+  transition: color 0.2s, background-color 0.2s;
+  border-bottom: 2px solid transparent;
+}
+
+.vne-nav-links li a:hover {
+  color: #b80000;
+  background-color: #fafafa;
+}
+
+.vne-nav-links li a.active {
+  color: #b80000;
+  border-bottom-color: #b80000;
+}
+
+/* --- MAIN CONTENT --- */
+.vne-main {
+  padding: 20px 0;
+}
+
+/* --- FEATURED ARTICLE --- */
+.vne-featured {
+  margin-bottom: 0;
+}
+
+.vne-featured-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.vne-featured-image {
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.vne-featured-image img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.vne-featured-image:hover img {
+  transform: scale(1.03);
+}
+
+.vne-featured-content {
+  padding-top: 8px;
+}
+
+.vne-featured-title {
+  font-family: 'Merriweather', 'Times New Roman', serif;
+  font-size: 1.55rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 14px;
+}
+
+.vne-featured-title a {
+  color: #1a1a1a;
+  transition: color 0.2s;
+}
+
+.vne-featured-title a:hover {
+  color: #b80000;
+}
+
+.vne-featured-desc {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.vne-featured-time {
+  font-size: 0.8rem;
+  color: #999;
+  font-style: italic;
+}
+
+/* --- SEPARATOR --- */
+.vne-separator {
+  border: none;
+  border-top: 1px solid #e5e5e5;
+  margin: 24px 0;
+}
+
+/* --- NEWS GRID --- */
+.vne-news-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.8fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.vne-article {
+  /* Standard article card */
+}
+
+.vne-article-title {
+  font-family: 'Merriweather', 'Times New Roman', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.45;
+  margin-bottom: 12px;
+}
+
+.vne-article-title a {
+  color: #1a1a1a;
+  transition: color 0.2s;
+}
+
+.vne-article-title a:hover {
+  color: #b80000;
+}
+
+.vne-article-image {
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.vne-article-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.vne-article-image:hover img {
+  transform: scale(1.03);
+}
+
+/* --- OPINION COLUMN (Góc nhìn) --- */
+.vne-opinion {
+  border-left: 3px solid #b80000;
+  padding-left: 16px;
+}
+
+.vne-opinion-label {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #b80000;
+  text-transform: none;
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+
+.vne-opinion-title {
+  font-family: 'Merriweather', 'Times New Roman', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.vne-opinion-title a {
+  color: #1a1a1a;
+  transition: color 0.2s;
+}
+
+.vne-opinion-title a:hover {
+  color: #b80000;
+}
+
+.vne-opinion-desc {
+  font-size: 0.88rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.vne-opinion-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.85rem;
+}
+
+.vne-author-name {
+  font-style: italic;
+  color: #555;
+  font-weight: 600;
+}
+
+.vne-comment-count {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #b80000;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.vne-comment-count svg {
+  color: #b80000;
+}
+
+/* --- FOOTER --- */
+.vne-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #f5f5f5;
+  border-top: 1px solid #e0e0e0;
+  padding: 16px 0;
+}
+
+.vne-footer-inner {
+  text-align: center;
+}
+
+.vne-footer-inner p {
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 4px;
+}
+
+.vne-footer-links a {
+  color: #666;
+  font-size: 0.8rem;
+  transition: color 0.2s;
+}
+
+.vne-footer-links a:hover {
+  color: #b80000;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 992px) {
+  .vne-news-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .vne-opinion {
+    grid-column: 1 / -1;
+    border-left: none;
+    border-top: 3px solid #b80000;
+    padding-left: 0;
+    padding-top: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .vne-featured-inner {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .vne-featured-image img {
+    height: 220px;
+  }
+
+  .vne-featured-title {
+    font-size: 1.3rem;
+  }
+
+  .vne-news-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .vne-nav-links li a {
+    padding: 0 10px;
+    font-size: 0.8rem;
+  }
+}
+
+/* --- Focus states (accessibility) --- */
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}

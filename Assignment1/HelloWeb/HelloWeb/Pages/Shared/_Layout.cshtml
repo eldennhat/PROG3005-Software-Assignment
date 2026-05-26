@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - VnExpress</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebApplication1.styles.css" asp-append-version="true" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <!-- Top navbar VnExpress style -->
+    <nav class="vne-navbar">
+        <div class="container">
+            <div class="vne-nav-inner">
+                <a class="vne-home-icon" asp-area="" asp-page="/Index" title="Trang chủ">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146z"/>
+                    </svg>
+                </a>
+                <div class="vne-nav-links-wrapper">
+                    <ul class="vne-nav-links">
+                        <li><a href="#">VnE-GO</a></li>
+                        <li><a href="#" class="active">Thời sự</a></li>
+                        <li><a href="#">Thế giới</a></li>
+                        <li><a href="#">Kinh doanh</a></li>
+                        <li><a href="#">Khoa học công nghệ</a></li>
+                        <li><a href="#">Góc nhìn</a></li>
+                        <li><a href="#">Spotlight</a></li>
+                        <li><a href="#">Bất động sản</a></li>
+                        <li><a href="#">Sức khỏe</a></li>
+                        <li><a href="#">Giải trí</a></li>
+                        <li><a href="#">Thể thao</a></li>
+                        <li><a href="#">Pháp luật</a></li>
+                        <li><a href="#">Giáo dục</a></li>
+                        <li><a href="#">Xe</a></li>
+                        <li><a href="#">Ý kiến</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="container">
+    <main role="main" class="vne-main">
+        @RenderBody()
+    </main>
+</div>
+
+<footer class="vne-footer">
+    <div class="container">
+        <div class="vne-footer-inner">
+            <p>&copy; 2026 - Báo điện tử VnExpress | MXH số 553/GP-BTTTT</p>
+            <p class="vne-footer-links">
+                <a href="#">Tòa soạn</a> |
+                <a href="#">Liên hệ</a> |
+                <a href="#">Quảng cáo</a> |
+                <a asp-area="" asp-page="/Privacy">Chính sách bảo mật</a>
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+
+@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
