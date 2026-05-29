@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\CMC\\CMC_Summer_2026\\Web\\Example\\EX2\\StudentManagement\\StudentManagement\\StudentManagement.csproj",
+      "projectUniqueName": "D:\\CMC\\CMC_Summer_2026\\Web\\Assignment2\\StudentManagement\\StudentManagement\\StudentManagement.csproj",
       "projectName": "StudentManagement",
-      "projectPath": "D:\\CMC\\CMC_Summer_2026\\Web\\Example\\EX2\\StudentManagement\\StudentManagement\\StudentManagement.csproj",
+      "projectPath": "D:\\CMC\\CMC_Summer_2026\\Web\\Assignment2\\StudentManagement\\StudentManagement\\StudentManagement.csproj",
       "packagesPath": "C:\\Users\\eldennhat\\.nuget\\packages\\",
-      "outputPath": "D:\\CMC\\CMC_Summer_2026\\Web\\Example\\EX2\\StudentManagement\\StudentManagement\\obj\\",
+      "outputPath": "D:\\CMC\\CMC_Summer_2026\\Web\\Assignment2\\StudentManagement\\StudentManagement\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\eldennhat\\AppData\\Roaming\\NuGet\\NuGet.Config"
