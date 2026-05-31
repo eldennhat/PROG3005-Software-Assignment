@@ -1,0 +1,27 @@
+﻿@model BookViewModel
+
+@{
+    ViewData["Title"] = "Add Book";
+}
+
+<h3 class="mb-4">Add book</h3>
+
+@if (TempData["SuccessMessage"] != null) {
+    <div class="alert alert-success ary-dismissible fade show" role="alert">
+        @TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<!-- Add book form -->
+<form asp-controller="Book" asp-action="Create" method="post">
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label">Book name</label>
+        <input asp-for="Name" class="form-control" placeholder="Enter book name" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Price" class="form-label">Price</label>
+        <input asp-for="Price" class="form-control" placeholder="Enter book price" />
+    </div>
+    <button type="submit" class="btn btn-success">Add book</button>
+</form>

@@ -1,0 +1,40 @@
+﻿@model List<BookViewModel>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Book Management</title>
+</head>
+<body>
+<h2 class="mb-4">Book list</h2>
+<table class="table table-hover">
+    <thead class="table-light">
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Price</th>
+        <th>Details</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var books in Model) {
+        <tr>
+            <td>@books.Id</td>
+            <td>@books.Name</td>
+            <td>$@books.Price</td>
+            <td>
+                <a asp-controller="Book" asp-action="Details" asp-route-id="@books.Id" class="btn btn-secondary btn-sm">
+                    View
+                </a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+</body>
+</html>
