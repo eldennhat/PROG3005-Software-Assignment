@@ -37,7 +37,7 @@ public class BookController : Controller {
     [HttpPost]
     public IActionResult Create(BookViewModel book)
     {
-        TempData["SuccessMessage"] = "Book" + book.Name + "added successfully!";
-        return RedirectToAction("Index");
+        TempData["SuccessMessage"] = "Book " + book.Name + " added successfully!";
+        return RedirectToAction("Create", "Book");
     }
 }
