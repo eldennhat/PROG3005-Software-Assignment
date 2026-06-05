@@ -1,0 +1,33 @@
+﻿@model List<BookViewModel>
+
+@{
+    ViewData["Title"] = "Danh sách sách";
+}
+
+<h2 class="mb-4">Danh sách sách</h2>
+
+<table class="table table-hover">
+    <thead class="table-light">
+    <tr>
+        <th>ID</th>
+        <th>TÊN SÁCH</th>
+        <th>GIÁ ($)</th>
+        <th>CHI TIẾT</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var book in Model)
+    {
+        <tr>
+            <td>@book.Id</td>
+            <td><strong>@book.Name</strong></td>
+            <td>@book.Price</td>
+            <td>
+                <a asp-controller="Book" asp-action="Detail" asp-route-id="@book.Id" class="btn btn-primary btn-sm">
+                    Xem chi tiết
+                </a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

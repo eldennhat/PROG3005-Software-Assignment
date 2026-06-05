@@ -1,0 +1,30 @@
+﻿@model BookViewModel
+
+@{
+    ViewData["Title"] = "Chi tiết sách";
+}
+
+<h2 class="mb-4">Chi tiết sách</h2>
+
+<div class="card" style="max-width: 500px;">
+    <div class="card-body">
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <td>@Model.Id</td>
+            </tr>
+            <tr>
+                <th>Tên sách</th>
+                <td>@Model.Name</td>
+            </tr>
+            <tr>
+                <th>Giá</th>
+                <td>@Model.Price VNĐ</td>
+            </tr>
+        </table>
+
+        <a asp-controller="Book" asp-action="Index" class="btn btn-secondary">
+            ← Quay lại danh sách
+        </a>
+    </div>
+</div>

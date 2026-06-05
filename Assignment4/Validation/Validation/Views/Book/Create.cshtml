@@ -1,0 +1,35 @@
+﻿@model BookViewModel
+
+@{
+    ViewData["Title"] = "Thêm sách";
+}
+
+<h2 class="mb-4">Thêm sách mới</h2>
+
+<!-- Hiển thị thông báo thành công nếu có -->
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+<!-- Form thêm sách -->
+@*Sẽ post đến trang Book/Create *@
+<form asp-controller="Book" asp-action="Create" method="post"> 
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label">Tên sách</label>
+        <input asp-for="Name" class="form-control" placeholder="Nhập tên sách" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Price" class="form-label">Giá</label>
+        <input asp-for="Price" class="form-control" placeholder="Nhập giá sách" />
+        <span asp-validation-for="Price" class="text-danger"></span> 
+        @* Thêm validation tại vị trí này *@
+    </div>
+
+    <button type="submit" class="btn btn-success">Thêm sách</button>
+</form>

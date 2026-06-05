@@ -1,0 +1,78 @@
+﻿@page
+@model WebApplication1.Pages.IndexModel
+@{
+    ViewData["Title"] = "Trang chủ";
+}
+
+<!-- FEATURED ARTICLE - Tin nổi bật -->
+<section class="vne-featured">
+    <div class="vne-featured-inner">
+        <div class="vne-featured-image">
+            <a href="#">
+                <img src="~/images/hanoi_red_river.png" alt="Trục cảnh quan sông Hồng" />
+            </a>
+        </div>
+        <div class="vne-featured-content">
+            <h1 class="vne-featured-title">
+                <a href="#">'Ưu tiên tái định cư trước khi triển khai Trục cảnh quan sông Hồng'</a>
+            </h1>
+            <p class="vne-featured-desc">
+                Hà Nội sẽ ưu tiên xây dựng các khu tái định cư trước khi triển khai
+                Trục Đại lộ cảnh quan sông Hồng - dự án hơn 11.400 ha, liên quan
+                khoảng 247.000 dân ven sông, thực hiện giai đoạn 2026-2038.
+            </p>
+            <span class="vne-featured-time">1h trước</span>
+        </div>
+    </div>
+</section>
+
+<!-- SEPARATOR -->
+<hr class="vne-separator" />
+
+<!-- NEWS GRID - Lưới tin tức 3 cột -->
+<section class="vne-news-grid">
+    <!-- Article 1 -->
+    <article class="vne-article">
+        <h3 class="vne-article-title">
+            <a href="#">Hà Nội giải phóng mặt bằng cho hơn 1.400 dự án</a>
+        </h3>
+        <div class="vne-article-image">
+            <a href="#">
+                <img src="~/images/demolition_site.png" alt="Giải phóng mặt bằng" />
+            </a>
+        </div>
+    </article>
+
+    <!-- Article 2 -->
+    <article class="vne-article">
+        <h3 class="vne-article-title">
+            <a href="#">TP HCM siết kiểm soát người nhập cảnh phòng Ebola</a>
+        </h3>
+        <div class="vne-article-image">
+            <a href="#">
+                <img src="~/images/airport_screening.png" alt="Kiểm soát nhập cảnh" />
+            </a>
+        </div>
+    </article>
+
+    <!-- Góc nhìn (Opinion column) -->
+    <aside class="vne-opinion">
+        <h4 class="vne-opinion-label">Góc nhìn</h4>
+        <h3 class="vne-opinion-title">
+            <a href="#">'Bóc lột' trên YouTube</a>
+        </h3>
+        <p class="vne-opinion-desc">
+            Khi cỗ máy Content ID của YouTube bị trục lợi, nhiều nghệ sĩ sáng tạo nội dung
+            đang bị tước đoạt thu nhập một cách vô lý...
+        </p>
+        <div class="vne-opinion-author">
+            <span class="vne-author-name">Hoàng Hà</span>
+            <span class="vne-comment-count">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12z"/>
+                </svg>
+                24
+            </span>
+        </div>
+    </aside>
+</section>
