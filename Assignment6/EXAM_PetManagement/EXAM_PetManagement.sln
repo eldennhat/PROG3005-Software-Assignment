@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EXAM_PetManagement", "EXAM_PetManagement\EXAM_PetManagement.csproj", "{98ACA912-0BAB-429A-A1B0-14ECCE404814}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{98ACA912-0BAB-429A-A1B0-14ECCE404814}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98ACA912-0BAB-429A-A1B0-14ECCE404814}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98ACA912-0BAB-429A-A1B0-14ECCE404814}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98ACA912-0BAB-429A-A1B0-14ECCE404814}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
