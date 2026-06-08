@@ -1,0 +1,16 @@
+﻿@model Pet
+
+@{
+    ViewData["Title"] = "Pet Detail";
+    Layout = "_Layout";
+}
+
+<h2>Pet detail</h2>
+<div>
+    <p><strong>ID: </strong>@Model.Id</p>
+    <p><strong>Name: </strong>@Model.Name</p>
+    <p><strong>Species: </strong>@Model.Species</p>
+    <p><strong>Age: </strong>@Model.Age</p>
+    <p><strong>Price: </strong>$@Model.Price.ToString("N0")</p>
+</div>
+<a asp-action="Index" class="btn btn-secondary">Return</a>

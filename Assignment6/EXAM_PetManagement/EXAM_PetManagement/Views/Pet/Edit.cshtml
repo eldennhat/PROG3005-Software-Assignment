@@ -1,0 +1,38 @@
+﻿@model Pet
+
+@{
+    ViewData["Title"] = "Edit Pet";
+    Layout = "_Layout";
+}
+
+<h2>Edit Information</h2>
+<form asp-action="Edit" method="post" class="w-50">
+    <input type="hidden" asp-for="Id"/>
+    <div class="mb-3">
+        <label>Name</label>
+        <input asp-for="Name" class="form-control"/>
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label>Species</label>
+        <input asp-for="Species" class="form-control"/>
+        <span asp-validation-for="Species" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label>Age</label>
+        <input asp-for="Age" class="form-control"/>
+        <span asp-validation-for="Age" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label>Price</label>
+        <input asp-for="Price" class="form-control"/>
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

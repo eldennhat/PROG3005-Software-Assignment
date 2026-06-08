@@ -1,0 +1,17 @@
+﻿@model Pet
+
+@{
+    ViewData["Title"] = "Delete Pet";
+    Layout = "_Layout";
+}
+
+<h2>Confirm delete</h2>
+<div class="alert alert-danger">
+    Are you sure you want to delete <strong>@Model.Name</strong>? This action cannot be undone!
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Delete it forever</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

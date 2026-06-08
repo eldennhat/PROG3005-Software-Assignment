@@ -1,0 +1,55 @@
+﻿@model List<EXAM_PetManagement.Models.Pet>
+
+@{
+    ViewData["Title"] = "Pet List";
+    Layout = "_Layout";
+}
+
+<h2>Pet List</h2>
+
+@if (TempData["SuccessMessage"] != null) {
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+
+<form asp-action="Index" method="get" class="mb-3 d-flex">
+    <input type="text" name="searchString" class="form-control me-2" placeholder="Enter a pet name or species..." style="max-width: 300px;"/>
+    <button class="btn btn-primary" type="submit">Search</button>
+</form>
+
+<a asp-action="Create" class="btn btn-success mb-3">Add new</a>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Species</th>
+        <th>Age</th>
+        <th>Price</th>
+        <th>Action</th>
+    </tr>
+    @if (Model.Count == 0) {
+        <tr><td colspan="6" class="text-center">No pets found.</td></tr>
+    }
+    else {
+        foreach (var pet in Model) {
+            <tr>
+                <td>@pet.Id</td>
+                <td>@pet.Name</td>
+                <td>@pet.Species</td>
+                <td>@pet.Age</td>
+                <td>$@pet.Price.ToString("N0")</td>
+                <td>
+                    <a asp-action="Detail" asp-route-id="@pet.Id" class="btn btn-info btn-sm">Detail</a>
+                    <a asp-action="Edit" asp-route-id="@pet.Id" class="btn btn-warning btn-sm">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@pet.Id" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    }
+</table>
+
+@section Scripts {
+    <script>
+        console.log("List page loaded.")
+    </script>
+}
