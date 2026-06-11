@@ -1,0 +1,41 @@
+@model IEnumerable<Book>
+@{
+    ViewData["Title"] = "Danh sách sách";
+}
+
+<h1>Book Management</h1>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Thêm sách</a>
+</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.Id</td>
+                <td>@book.Name</td>
+                <td>@book.Price</td>
+                <td>
+                    <a asp-action="Detail" asp-route-id="@book.Id">Chi tiết</a> |
+                    <a asp-action="Edit" asp-route-id="@book.Id">Sửa</a> |
+                    <a asp-action="Delete" asp-route-id="@book.Id">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
