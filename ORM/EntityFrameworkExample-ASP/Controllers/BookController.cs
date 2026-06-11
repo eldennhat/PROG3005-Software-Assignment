@@ -21,11 +21,7 @@ namespace Lesson3_CNLTWeb.Controllers
         public IActionResult Detail(int id)
         {
             var book = _bookRepository.GetById(id);
-            if (book == null)
-            {
-                return NotFound();
-            }
-
+            if (book == null) return NotFound();
             return View(book);
         }
 
