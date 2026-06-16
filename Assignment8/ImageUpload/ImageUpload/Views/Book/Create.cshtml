@@ -1,0 +1,35 @@
+@model Book
+@{
+    ViewData["Title"] = "Thêm sách";
+}
+
+<h1>Thêm sách</h1>
+
+<form asp-action="Create" method="post" enctype="multipart/form-data" class="w-50">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label">Book name</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Price" class="form-label">Price</label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label>Product Image</label>
+        <input type="file" name="imageFile" class="form-control" accept=".jpg,.png" />
+        
+        @Html.ValidationMessage("ImageFile", "", new { @class = "text-danger" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Thêm</button>
+    <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "qrE/TxqsWLI=",
+  "success": true,
+  "projectFilePath": "D:\\CMC\\CMC_Summer_2026\\Web\\API\\BasicAPI\\BasicAPI\\BasicAPI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\eldennhat\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.16\\microsoft.aspnetcore.openapi.9.0.16.nupkg.sha512",
+    "C:\\Users\\eldennhat\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}
