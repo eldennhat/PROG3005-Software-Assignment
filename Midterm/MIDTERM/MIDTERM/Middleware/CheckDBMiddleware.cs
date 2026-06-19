@@ -1,4 +1,4 @@
-﻿namespace Lesson3_CNLTWeb.Middleware
+﻿namespace MIDTERM.Middleware
 {
     public class CheckDBMiddleware
     {

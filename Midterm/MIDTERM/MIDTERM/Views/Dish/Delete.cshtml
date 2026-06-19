@@ -1,0 +1,19 @@
+﻿@model MIDTERM.Models.Dish_BIT240199
+@{
+    ViewData["Title"] = "Purge Record From System";
+}
+
+<div class="container mt-4 text-center">
+    <h3 class="text-danger">Are you absolutely certain you want to purge this record?</h3>
+    <div class="card mx-auto mt-4" style="max-width: 500px;">
+        <div class="card-body">
+            <h4 class="card-title">@Model.Name</h4>
+            <p class="card-text text-muted">Proceeding will clear all linked sub-assets from the datastore environment.</p>
+            <form asp-action="Delete" method="post">
+                <input type="hidden" asp-for="Id" />
+                <button type="submit" class="btn btn-danger me-2">Confirm Delete Action</button>
+                <a asp-action="Index" class="btn btn-secondary">Abort Operations</a>
+            </form>
+        </div>
+    </div>
+</div>

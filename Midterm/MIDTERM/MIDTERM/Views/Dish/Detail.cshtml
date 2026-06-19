@@ -1,0 +1,109 @@
+﻿@model MIDTERM.Models.Dish_BIT240199
+@{
+    ViewData["Title"] = "Dish Details & Asset Management";
+}
+
+<div class="container mt-4">
+    <h2>Details Configuration: @Model.Name</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-5">
+            <table class="table table-bordered">
+                <tr>
+                    <th>Category Tier:</th>
+                    <td>@Model.DishCategory?.Name</td>
+                </tr>
+                <tr>
+                    <th>Base Pricing:</th>
+                    <td>@Model.Price.ToString("N0") VND</td>
+                </tr>
+                <tr>
+                    <th>Prep Work Time:</th>
+                    <td>@Model.PreparationTime minutes (@Model.PreparationType)</td>
+                </tr>
+                <tr>
+                    <th>Trading Status:</th>
+                    <td>@(Model.IsAvailable ? "Active Commercial Availability" : "Suspended / Discontinued")</td>
+                </tr>
+                <tr>
+                    <th>Meta Description:</th>
+                    <td>@Model.Description</td>
+                </tr>
+            </table>
+            <a asp-action="Index" class="btn btn-secondary">Return to Menu Grid</a>
+        </div>
+
+        <div class="col-md-7">
+            <div class="card mb-4">
+                <div class="card-header bg-dark text-white">
+                    <h5 class="mb-0">Attach Image Resource (URL Link or File Upload)</h5>
+                </div>
+                <div class="card-body">
+                    @if (TempData["ErrorImage"] != null)
+                    {
+                        <div class="text-danger mb-2">@TempData["ErrorImage"]</div>
+                    }
+                    @if (TempData["SuccessMessage"] != null)
+                    {
+                        <div class="alert alert-success py-2">@TempData["SuccessMessage"]</div>
+                    }
+        
+                    <form asp-action="AddImage" method="post" enctype="multipart/form-data" class="row g-3">
+                        <input type="hidden" name="dishId" value="@Model.Id" />
+            
+                        <div class="col-md-6">
+                            <label class="form-label text-muted small mb-1">Option 1: Paste Public URL Path</label>
+                            <input type="text" name="imageUrl" class="form-control form-control-sm" placeholder="https://example.com/image.jpg" />
+                        </div>
+            
+                        <div class="col-md-6">
+                            <label class="form-label text-muted small mb-1">Option 2: Upload From Local Disk</label>
+                            <input type="file" name="imageFile" class="form-control form-control-sm" accept=".jpg,.jpeg,.png" />
+                        </div>
+            
+                        <div class="col-12 d-flex justify-content-between align-items-center mt-2 pt-2 border-top">
+                            <div class="form-check">
+                                <input type="checkbox" name="isThumbnail" value="true" class="form-check-input" id="chkThumb" />
+                                <label class="form-check-label text-dark small" for="chkThumb">
+                                    <strong>Set as Primary Thumbnail</strong>
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-sm px-4">Add Asset to Gallery</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <h5>Active Mapped Gallery Assets</h5>
+            @if (!Model.DishImages.Any())
+            {
+                <div class="alert alert-warning">Requirement 6 Warning: This system record currently does not possess any bound image assets! Please link one above.</div>
+            }
+            else
+            {
+                <div class="row g-3">
+                    @foreach (var img in Model.DishImages)
+                    {
+                        <div class="col-md-4 text-center">
+                            <div class="card p-2 border @(img.IsThumbnail ? "border-success border-3 shadow" : "")">
+                                <img src="@img.ImageUrl" style="height:120px; object-fit:cover;" class="card-img-top rounded mb-2" alt="Dish Asset" />
+                                
+                                @if (img.IsThumbnail)
+                                {
+                                    <span class="badge bg-success py-2 mb-1 w-100">★ Primary Thumbnail</span>
+                                }
+                                else
+                                {
+                                    <a asp-action="ChangeThumbnail" 
+                                       asp-route-imageId="@img.Id" 
+                                       asp-route-dishId="@Model.Id" 
+                                       class="btn btn-outline-success btn-sm w-100">Set as Primary</a>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div>

@@ -6,4 +6,17 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.3.11" />
+      <PackageReference Include="Microsoft.Data.SqlClient" Version="7.1.0-preview1.26124.5" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\Book\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Book\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Book\Detail.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Book\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Book\Index.cshtml" />
+    </ItemGroup>
+
 </Project>

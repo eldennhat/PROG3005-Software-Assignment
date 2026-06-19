@@ -1,0 +1,41 @@
+﻿@model IEnumerable<MIDTERM.Models.DishCategory_BIT240199>
+@{
+    ViewData["Title"] = "Category Structure - Rule Integrity Check";
+}
+
+<div class="container mt-4">
+    <h2>Category Records (Restraint Boundary Check)</h2>
+    <hr />
+
+    @if (TempData["CategoryDeleteError"] != null)
+    {
+        <div class="alert alert-danger font-weight-bold">@TempData["CategoryDeleteError"]</div>
+    }
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+        <tr>
+            <th>System ID</th>
+            <th>Category Designation Name</th>
+            <th>Bound Scope Notes</th>
+            <th>Purge Constraints</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td><strong>@item.Name</strong></td>
+                <td>@item.Description</td>
+                <td>
+                    <form asp-action="DeleteCategory" asp-route-id="@item.Id" method="post" onsubmit="return confirm('Initiate database target testing block?');">
+                        <button type="submit" class="btn btn-sm btn-danger">Attempt Purge</button>
+                    </form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    <a asp-action="Index" class="btn btn-secondary">Return to Menu Grid</a>
+</div>

@@ -1,10 +1,15 @@
+using MIDTERM.Data;
+using MIDTERM.Middleware;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<DishRepository>();
 
 var app = builder.Build();
 
+DbInitializer.Initialize(app.Configuration);
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment()) {
     app.UseExceptionHandler("/Home/Error");
