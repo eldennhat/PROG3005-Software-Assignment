@@ -1,23 +1,80 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using JsonWebToken.Models;
+using System.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
+using JsonWebToken.Models;
+using JsonWebToken.Data;
+using System.Linq;
+using System.ComponentModel.Design;
+using Microsoft.EntityFrameworkCore;
 
 namespace JsonWebToken.Controllers;
 
-public class HomeController : Controller {
+
+public class HomeController : Controller
+{
+    private readonly ApplicationDbContext _context;
+
+    public HomeController(ApplicationDbContext context)
+    {
+        _context = context;
+    }
+
     public IActionResult Index()
     {
-        return View();
+        // Truy vấn dữ liệu và map sang View Model
+        var movies = _context.Movies
+            .Select(m => new MovieViewModel
+            {
+                MovieId = m.MovieId,
+                Title = m.Title,
+                Duration = m.Duration,
+                PosterURL = m.PosterURL,
+                // Gom tên các thể loại nối với nhau bằng dấu phẩy
+                Genre = string.Join(", ", m.MovieGenres.Select(mg => mg.Genre.Name)) 
+            })
+            .ToList();
+
+        // Gửi danh sách này sang View
+        return View(movies);
     }
 
-    public IActionResult Privacy()
+    public IActionResult Details(int id)
     {
-        return View();
+        var movie = _context.Movies
+            .Where(m => m.MovieId == id)
+            .Select(m => new MovieViewModel
+            {
+                // VẾ TRÁI (MovieViewModel) = VẾ PHẢI (Entity/Database)
+                MovieId = m.MovieId,
+                Title = m.Title,
+                Duration = m.Duration,
+                PosterURL = m.PosterURL,
+                ReleaseDate = m.ReleaseDate,
+                AgeRating = m.AgeRating,
+                Synopsis = m.Synopsis,
+                Trailer = m.Trailer,
+
+                Showtimes = m.Showtimes,
+
+                // Load thông tin từ 3 bảng khác
+                Language = m.Language,
+                Country = m.Country,
+
+                // Format 
+                Genre = string.Join(", ", m.MovieGenres.Select(mg => mg.Genre.Name)),
+                MovieDirector = string.Join(", ", m.MovieDirectors.Select(md => md.person.FullName)),
+                MovieCast = string.Join(", ", m.MovieCasts.Select(mc => mc.person.FullName))
+            })
+            .FirstOrDefault();
+
+        if(movie == null)
+        {
+            return NotFound();
+        }
+
+        return View(movie);
     }
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-    }
 }
